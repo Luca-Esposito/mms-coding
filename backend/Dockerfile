@@ -1,10 +1,10 @@
-FROM node:14 AS builder
+FROM node:14-alpine AS builder
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --only=development
+RUN npm install --silent
 
 COPY . .
 
@@ -19,7 +19,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --only=production
+RUN npm install --only=production --silent
 
 COPY . .
 COPY --from=builder /app/dist ./dist

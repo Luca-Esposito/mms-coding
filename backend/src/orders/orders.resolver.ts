@@ -30,6 +30,12 @@ export class OrdersResolver {
         order.employee = employee;
         order.currentState = OrderStates[order.currentState];
 
+        if (order.stateHistory) {
+          order.stateHistory.map((s) => {
+            return (s.state = OrderStates[s.state]);
+          });
+        }
+
         return order;
       }),
     );
@@ -44,6 +50,12 @@ export class OrdersResolver {
     order.currentState = OrderStates[order.currentState];
     order.employee = employee;
     order.customer = customer;
+
+    if (order.stateHistory) {
+      order.stateHistory.map((s) => {
+        return (s.state = OrderStates[s.state]);
+      });
+    }
 
     return order;
   }

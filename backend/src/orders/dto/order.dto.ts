@@ -46,6 +46,9 @@ export class OrderType {
   @IsOptional()
   employee?: EmployeeType | null;
 
+  @Field((type) => [StateHistoryType], { nullable: true })
+  stateHistory?: StateHistoryType[];
+
   @Field()
   @IsDate()
   readonly createdAt: number;
@@ -53,7 +56,4 @@ export class OrderType {
   @Field()
   @IsDate()
   readonly updatedAt?: number;
-
-  @Field((type) => [StateHistoryType], { nullable: true })
-  stateHistory?: StateHistoryType[];
 }
