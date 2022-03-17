@@ -1,10 +1,10 @@
 # Coding Challenge
 
 ###Backend 
-the backend is written in typescript with Nest.js. It is located in ./backend folder.  
+the backend is written in typescript with Nest.js. It is located in ./backend folder. It is runing on Port 3000  
 
 ###Frontend Client Side 
-the frontend client side is written in typescript with React. It is located in ./frontend/client folder. (it's not complete)
+the frontend client side is written in typescript with React. It is located in ./frontend/client folder. It is runing on Port 8080  (it's not complete)
 
 ###Frontend Server Side
 the frontend server side written in typescript with React. It is located in ./frontend folder. (it's not complete)
