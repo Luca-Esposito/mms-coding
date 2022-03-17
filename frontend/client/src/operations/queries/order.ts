@@ -33,6 +33,11 @@ export const GET_ORDER = gql`
         name
         firstName
       }
+      stateHistory {
+        _id
+        state
+        updatedAt
+      }
     }
   }
 `;

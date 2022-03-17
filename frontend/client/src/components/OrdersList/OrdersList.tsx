@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { Order } from "../../interfaces";
 
 import style from "./OrdersList.module.scss";
+import { dateHelper } from "../../helper";
 
 interface OrdersListProps {
   orders: Order[];
@@ -44,16 +45,8 @@ export const OrdersList: React.FC<OrdersListProps> = ({ orders }) => {
                 {order._id}
               </TableCell>
               <TableCell align="right">{order.currentState}</TableCell>
-              <TableCell align="right">
-                {new Date(order.createdAt).toLocaleString("de-DE", {
-                  timeZone: "UTC",
-                })}
-              </TableCell>
-              <TableCell align="right">
-                {new Date(order.updatedAt).toLocaleString("de-DE", {
-                  timeZone: "UTC",
-                })}
-              </TableCell>
+              <TableCell align="right">{dateHelper(order.createdAt)}</TableCell>
+              <TableCell align="right">{dateHelper(order.updatedAt)}</TableCell>
             </TableRow>
           ))}
         </TableBody>
