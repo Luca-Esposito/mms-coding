@@ -1,0 +1,56 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CustomerType {
+  _id: ID!
+  name: String!
+  firstName: String!
+}
+
+type LineItemType {
+  _id: ID!
+  name: String!
+  sku: String!
+}
+
+type EmployeeType {
+  _id: ID!
+  name: String!
+  firstName: String!
+}
+
+type StateHistoryType {
+  _id: ID!
+  state: String!
+  employeeId: String!
+  updatedAt: Float!
+}
+
+type OrderType {
+  _id: ID!
+  currentState: String!
+  customerId: String!
+  customer: CustomerType!
+  lineItems: [LineItemType!]!
+  employeeId: String!
+  employee: EmployeeType
+  createdAt: Float!
+  updatedAt: Float!
+  stateHistory: [StateHistoryType!]
+}
+
+type Query {
+  orders: [OrderType!]!
+  order(id: String!): OrderType!
+  employees: [EmployeeType!]!
+}
+
+type Mutation {
+  updateState(id: String!, input: OrderInput!): OrderType!
+}
+
+input OrderInput {
+  currentState: String!
+  employeeId: String
+}
